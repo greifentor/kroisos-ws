@@ -29,9 +29,7 @@
     <ComplexIndices />
     <DataSources>
         <Import dbName="IMPORT" description="no description" domains="false" driver="IMPORT" name="unknown" references="false" user="usr" />
-        <DatabaseConnection dbExecMode="MYSQL" driver="org.mariadb.jdbc.Driver" name="mariaDB" quote="" setDomains="false" setNotNull="false" setReferences="false" url="jdbc:mariadb://localhost:3306/carpdnd" userName="carpdnd" />
-        <DatabaseConnection dbExecMode="MYSQL" driver="org.mariadb.jdbc.Driver" name="mariaDB (TEST)" quote="" setDomains="false" setNotNull="false" setReferences="false" url="jdbc:mariadb://localhost:3306/carpdnd_test" userName="carpdnd" />
-        <DatabaseConnection dbExecMode="HSQL" driver="org.hsqldb.jdbcDriver" name="HypersonicSQL (GUI)" quote="" setDomains="false" setNotNull="true" setReferences="true" url="jdbc:hsqldb:file:/home/ollie/eclipse-workspace-2021-09/tmp/carpdnd" userName="sa" />
+        <DatabaseConnection dbExecMode="MYSQL" driver="org.mariadb.jdbc.Driver" name="mariaDB (pentesilea)" quote="" setDomains="false" setNotNull="false" setReferences="false" url="jdbc:mariadb://pentesilea:3306/kroisosws" userName="kroisos" />
     </DataSources>
     <Domains>
         <Domain comment="" dataType="2" decimalPlace="2" history="" initialValue="NULL" length="10" name="Betrag" parameters="MAX:999D|MIN:0D|STEP:0.01D" type="numeric(10, 2)" />
