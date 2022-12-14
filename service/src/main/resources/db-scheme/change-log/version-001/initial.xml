@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd ">
+	<changeSet author="dm-comp" id="Add-Basic-Tables" runInTransaction="true" failOnError="true">
+		<createTable tableName="KONTO">
+			<column name="KUERZEL" type="VARCHAR(25)" />
+			<column name="ID" type="BIGINT" />
+		</createTable>
+		<addPrimaryKey columnNames="ID" tableName="KONTO" />
+		<createTable tableName="PARTNER">
+			<column name="BEZEICHNUNG" type="VARCHAR(50)" />
+			<column name="ID" type="BIGINT" />
+		</createTable>
+		<addPrimaryKey columnNames="ID" tableName="PARTNER" />
+		<createTable tableName="BUCHUNG_BUDGET">
+			<column name="BETRAG" type="NUMERIC(10, 2)">
+				<constraints nullable="false" />
+			</column>
+			<column name="BUDGET" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="ID" type="BIGINT" />
+			<column name="BUCHUNG" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="ID" tableName="BUCHUNG_BUDGET" />
+		<createTable tableName="BUDGET">
+			<column name="KUERZEL" type="VARCHAR(25)" />
+			<column name="ID" type="BIGINT" />
+		</createTable>
+		<addPrimaryKey columnNames="ID" tableName="BUDGET" />
+		<createTable tableName="BUCHUNG">
+			<column name="PARTNER" type="BIGINT" />
+			<column name="BETRAG" type="NUMERIC(10, 2)">
+				<constraints nullable="false" />
+			</column>
+			<column name="BEZEICHNUNG" type="VARCHAR(50)" />
+			<column name="KONTO_QUELLE" type="BIGINT" />
+			<column name="ID" type="BIGINT" />
+			<column name="KONTO_ZIEL" type="BIGINT" />
+		</createTable>
+		<addPrimaryKey columnNames="ID" tableName="BUCHUNG" />
+		<addForeignKeyConstraint baseColumnNames="BUCHUNG" baseTableName="BUCHUNG_BUDGET" constraintName="FK_BUCHUNG_BUDGET_BUCHUNG_TO_BUCHUNG" referencedColumnNames="ID" referencedTableName="BUCHUNG" />
+		<addForeignKeyConstraint baseColumnNames="BUDGET" baseTableName="BUCHUNG_BUDGET" constraintName="FK_BUCHUNG_BUDGET_BUDGET_TO_BUDGET" referencedColumnNames="ID" referencedTableName="BUDGET" />
+		<addForeignKeyConstraint baseColumnNames="KONTO_QUELLE" baseTableName="BUCHUNG" constraintName="FK_BUCHUNG_KONTO_QUELLE_TO_KONTO" referencedColumnNames="ID" referencedTableName="KONTO" />
+		<addForeignKeyConstraint baseColumnNames="PARTNER" baseTableName="BUCHUNG" constraintName="FK_BUCHUNG_PARTNER_TO_PARTNER" referencedColumnNames="ID" referencedTableName="PARTNER" />
+		<addForeignKeyConstraint baseColumnNames="KONTO_ZIEL" baseTableName="BUCHUNG" constraintName="FK_BUCHUNG_KONTO_ZIEL_TO_KONTO" referencedColumnNames="ID" referencedTableName="KONTO" />
+	</changeSet>
+</databaseChangeLog>
