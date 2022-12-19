@@ -53,4 +53,9 @@ public abstract class PartnerGeneratedServiceImpl implements PartnerService {
 		persistencePort.delete(model);
 	}
 
+	@Override
+	public List<Partner> findAllByBezeichnung(String bezeichnung) {
+		return persistencePort.findAllByBezeichnung(bezeichnung);
+	}
+
 }

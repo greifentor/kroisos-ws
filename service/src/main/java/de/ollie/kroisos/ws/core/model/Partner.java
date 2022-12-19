@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
 public class Partner extends GeneratedPartner {
 
 	@Override
-	public Partner setId(Long id) {
+	public Partner setId(long id) {
 		super.setId(id);
 		return this;
 	}

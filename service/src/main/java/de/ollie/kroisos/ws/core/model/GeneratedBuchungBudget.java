@@ -19,7 +19,7 @@ public class GeneratedBuchungBudget {
 	public static final String BUDGET = "BUDGET";
 	public static final String BETRAG = "BETRAG";
 
-	private Long id;
+	private long id;
 	private Buchung buchung;
 	private Budget budget;
 	private double betrag;

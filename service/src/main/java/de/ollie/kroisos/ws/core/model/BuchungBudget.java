@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
 public class BuchungBudget extends GeneratedBuchungBudget {
 
 	@Override
-	public BuchungBudget setId(Long id) {
+	public BuchungBudget setId(long id) {
 		super.setId(id);
 		return this;
 	}

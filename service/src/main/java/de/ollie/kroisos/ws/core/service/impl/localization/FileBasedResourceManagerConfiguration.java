@@ -15,6 +15,9 @@ import lombok.Getter;
 @Getter
 public class FileBasedResourceManagerConfiguration {
 
+	@Value("${localization.resource.enabled:true}")
+	private boolean enabled;
+
 	@Value("${localization.resource.file.name.prefix:kroisosws}")
 	private String fileNamePrefix;
 

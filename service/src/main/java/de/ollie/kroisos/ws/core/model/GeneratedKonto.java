@@ -17,7 +17,7 @@ public class GeneratedKonto {
 	public static final String ID = "ID";
 	public static final String KUERZEL = "KUERZEL";
 
-	private Long id;
+	private long id;
 	private String kuerzel;
 
 }

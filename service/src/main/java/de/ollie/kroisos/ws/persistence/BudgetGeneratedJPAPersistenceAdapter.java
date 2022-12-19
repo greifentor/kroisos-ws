@@ -42,7 +42,7 @@ public abstract class BudgetGeneratedJPAPersistenceAdapter implements BudgetPers
 
 	@Override
 	public Budget create(Budget model) {
-		model.setId(null);
+		model.setId(-1);
 		return converter.toModel(repository.save(converter.toDBO(model)));
 	}
 

@@ -53,4 +53,9 @@ public abstract class KontoGeneratedServiceImpl implements KontoService {
 		persistencePort.delete(model);
 	}
 
+	@Override
+	public List<Konto> findAllByKuerzel(String kuerzel) {
+		return persistencePort.findAllByKuerzel(kuerzel);
+	}
+
 }

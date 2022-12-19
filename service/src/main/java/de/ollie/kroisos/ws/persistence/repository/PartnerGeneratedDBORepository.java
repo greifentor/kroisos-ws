@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import de.ollie.kroisos.ws.persistence.entity.PartnerDBO;
 import lombok.Generated;
+import java.util.List;
 
 /**
  * A generated JPA repository for partners.
@@ -14,4 +15,7 @@ import lombok.Generated;
 @Generated
 @Repository
 public interface PartnerGeneratedDBORepository extends JpaRepository<PartnerDBO, Long> {
+
+	List<PartnerDBO> findAllByBezeichnung(String bezeichnung);
+
 }

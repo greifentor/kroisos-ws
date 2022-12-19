@@ -45,7 +45,7 @@ public abstract class BuchungBudgetGeneratedJPAPersistenceAdapter implements Buc
 
 	@Override
 	public BuchungBudget create(BuchungBudget model) {
-		model.setId(null);
+		model.setId(-1);
 		return converter.toModel(repository.save(converter.toDBO(model)));
 	}
 

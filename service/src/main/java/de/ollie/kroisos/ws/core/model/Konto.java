@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
 public class Konto extends GeneratedKonto {
 
 	@Override
-	public Konto setId(Long id) {
+	public Konto setId(long id) {
 		super.setId(id);
 		return this;
 	}

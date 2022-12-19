@@ -22,8 +22,8 @@ import lombok.experimental.Accessors;
 public class PartnerDBO {
 
 	@Id
-	@Column(name = "ID")
-	private Long id;
+	@Column(name = "ID", nullable = false)
+	private long id;
 	@Column(name = "BEZEICHNUNG")
 	private String bezeichnung;
 

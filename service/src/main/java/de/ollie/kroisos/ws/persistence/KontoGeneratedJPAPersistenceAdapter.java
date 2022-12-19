@@ -42,7 +42,7 @@ public abstract class KontoGeneratedJPAPersistenceAdapter implements KontoPersis
 
 	@Override
 	public Konto create(Konto model) {
-		model.setId(null);
+		model.setId(-1);
 		return converter.toModel(repository.save(converter.toDBO(model)));
 	}
 
@@ -69,6 +69,11 @@ public abstract class KontoGeneratedJPAPersistenceAdapter implements KontoPersis
 	@Override
 	public void delete(Konto model) {
 		repository.deleteById(model.getId());
+	}
+
+	@Override
+	public List<Konto> findAllByKuerzel(String kuerzel) {
+		return converter.toModel(repository.findAllByKuerzel(kuerzel));
 	}
 
 }

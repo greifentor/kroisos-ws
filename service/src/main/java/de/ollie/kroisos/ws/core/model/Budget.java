@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
 public class Budget extends GeneratedBudget {
 
 	@Override
-	public Budget setId(Long id) {
+	public Budget setId(long id) {
 		super.setId(id);
 		return this;
 	}

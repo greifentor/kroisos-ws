@@ -45,7 +45,7 @@ public abstract class BuchungGeneratedJPAPersistenceAdapter implements BuchungPe
 
 	@Override
 	public Buchung create(Buchung model) {
-		model.setId(null);
+		model.setId(-1);
 		return converter.toModel(repository.save(converter.toDBO(model)));
 	}
 

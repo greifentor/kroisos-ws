@@ -22,8 +22,8 @@ import lombok.experimental.Accessors;
 public class BudgetDBO {
 
 	@Id
-	@Column(name = "ID")
-	private Long id;
+	@Column(name = "ID", nullable = false)
+	private long id;
 	@Column(name = "KUERZEL")
 	private String kuerzel;
 

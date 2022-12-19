@@ -28,4 +28,6 @@ public interface KontoGeneratedService {
 
 	void delete(Konto model);
 
+	List<Konto> findAllByKuerzel(String kuerzel);
+
 }

@@ -42,7 +42,7 @@ public abstract class PartnerGeneratedJPAPersistenceAdapter implements PartnerPe
 
 	@Override
 	public Partner create(Partner model) {
-		model.setId(null);
+		model.setId(-1);
 		return converter.toModel(repository.save(converter.toDBO(model)));
 	}
 
@@ -69,6 +69,11 @@ public abstract class PartnerGeneratedJPAPersistenceAdapter implements PartnerPe
 	@Override
 	public void delete(Partner model) {
 		repository.deleteById(model.getId());
+	}
+
+	@Override
+	public List<Partner> findAllByBezeichnung(String bezeichnung) {
+		return converter.toModel(repository.findAllByBezeichnung(bezeichnung));
 	}
 
 }

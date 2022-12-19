@@ -17,7 +17,7 @@ public class GeneratedPartner {
 	public static final String ID = "ID";
 	public static final String BEZEICHNUNG = "BEZEICHNUNG";
 
-	private Long id;
+	private long id;
 	private String bezeichnung;
 
 }

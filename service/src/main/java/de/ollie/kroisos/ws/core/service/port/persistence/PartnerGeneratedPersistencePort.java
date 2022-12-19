@@ -28,4 +28,6 @@ public interface PartnerGeneratedPersistencePort {
 
 	void delete(Partner model);
 
+	List<Partner> findAllByBezeichnung(String bezeichnung);
+
 }

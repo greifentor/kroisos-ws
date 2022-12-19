@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import de.ollie.kroisos.ws.persistence.entity.KontoDBO;
 import lombok.Generated;
+import java.util.List;
 
 /**
  * A generated JPA repository for kontos.
@@ -14,4 +15,7 @@ import lombok.Generated;
 @Generated
 @Repository
 public interface KontoGeneratedDBORepository extends JpaRepository<KontoDBO, Long> {
+
+	List<KontoDBO> findAllByKuerzel(String kuerzel);
+
 }

@@ -34,6 +34,10 @@ public class FileBasedResourceManagerImpl implements ResourceManager {
 
 	@PostConstruct
 	private void postConstruct() {
+		if (!configuration.isEnabled()) {
+			logger.warn("resource manager disabled!");
+			return;
+		}
 		logger.info("reading resources ...");
 		for (LocalizationSO localization : LocalizationSO.values()) {
 			String fileName = configuration.getResourceFileName(localization).isEmpty()

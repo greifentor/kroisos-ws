@@ -25,8 +25,8 @@ import lombok.experimental.Accessors;
 public class BuchungBudgetDBO {
 
 	@Id
-	@Column(name = "ID")
-	private Long id;
+	@Column(name = "ID", nullable = false)
+	private long id;
 	@JoinColumn(name = "BUCHUNG", nullable = false, referencedColumnName = "ID")
 	@ManyToOne(fetch = FetchType.EAGER)
 	private BuchungDBO buchung;

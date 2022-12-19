@@ -21,7 +21,7 @@ public class GeneratedBuchung {
 	public static final String BETRAG = "BETRAG";
 	public static final String BEZEICHNUNG = "BEZEICHNUNG";
 
-	private Long id;
+	private long id;
 	private Konto kontoQuelle;
 	private Konto kontoZiel;
 	private Partner partner;
