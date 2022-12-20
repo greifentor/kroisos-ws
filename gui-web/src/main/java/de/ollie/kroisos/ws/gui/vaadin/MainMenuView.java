@@ -18,9 +18,11 @@ import de.ollie.kroisos.ws.gui.vaadin.component.ButtonFactory;
 import de.ollie.kroisos.ws.gui.vaadin.component.ButtonGrid;
 import de.ollie.kroisos.ws.gui.vaadin.component.HeaderLayout;
 import de.ollie.kroisos.ws.gui.vaadin.component.HeaderLayout.HeaderLayoutMode;
+import de.ollie.kroisos.ws.gui.vaadin.masterdata.MasterDataView;
+import lombok.RequiredArgsConstructor;
 
 @Route(MainMenuView.URL)
-
+@RequiredArgsConstructor
 public class MainMenuView extends VerticalLayout implements BeforeEnterObserver, HasUrlParameter<String> {
 
 	public static final String URL = "kroisos-ws/menu";
