@@ -17,11 +17,23 @@ public class BuchungBudgetMasterDataGridFieldRenderer implements MasterDataGridF
 
 	@Override
 	public Object getHeaderString(String fieldName, BuchungBudget model) {
+		if (BuchungBudget.BUDGET.equals(fieldName)) {
+			return model.getBudget() != null ? model.getBudget().getKuerzel() : "-";
+		}
+		if (BuchungBudget.BUCHUNG.equals(fieldName)) {
+			return model.getBuchung() != null ? model.getBuchung().getBezeichnung() : "-";
+		}
 		return null;
 	}
 
 	@Override
 	public boolean hasRenderingFor(String fieldName) {
+		if (BuchungBudget.BUDGET.equals(fieldName)) {
+			return true;
+		}
+		if (BuchungBudget.BUCHUNG.equals(fieldName)) {
+			return true;
+		}
 		return false;
 	}
 

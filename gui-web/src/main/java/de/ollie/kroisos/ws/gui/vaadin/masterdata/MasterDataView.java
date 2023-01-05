@@ -35,7 +35,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MasterDataView extends VerticalLayout implements BeforeEnterObserver, HasUrlParameter<String> {
 
-	public static final String URL = "${BaseURL}/masterdata/menu";
+	public static final String URL = "kroisos-ws/masterdata/menu";
 
 	private static final Logger LOG = LogManager.getLogger(MasterDataView.class);
 
@@ -57,6 +57,33 @@ public class MasterDataView extends VerticalLayout implements BeforeEnterObserve
 		setWidthFull();
 		getStyle().set("background-image", "url('" + guiConfiguration.getBackgroundFileName() + "')");
 		getStyle().set("background-size", "cover");
+		Button buttonMasterDataBuchung =
+				buttonFactory
+						.createButton(
+								resourceManager
+										.getLocalizedString(
+												"master-data.button.buchung.text",
+												session.getLocalization()));
+		buttonMasterDataBuchung.addClickListener(event -> switchToSourceBuchung());
+		buttonMasterDataBuchung.setWidthFull();
+		Button buttonMasterDataBuchungBudget =
+				buttonFactory
+						.createButton(
+								resourceManager
+										.getLocalizedString(
+												"master-data.button.buchungbudget.text",
+												session.getLocalization()));
+		buttonMasterDataBuchungBudget.addClickListener(event -> switchToSourceBuchungBudget());
+		buttonMasterDataBuchungBudget.setWidthFull();
+		Button buttonMasterDataBudget =
+				buttonFactory
+						.createButton(
+								resourceManager
+										.getLocalizedString(
+												"master-data.button.budget.text",
+												session.getLocalization()));
+		buttonMasterDataBudget.addClickListener(event -> switchToSourceBudget());
+		buttonMasterDataBudget.setWidthFull();
 		Button buttonMasterDataKonto =
 				buttonFactory
 						.createButton(
@@ -78,6 +105,9 @@ public class MasterDataView extends VerticalLayout implements BeforeEnterObserve
 		ButtonGrid buttonGrid =
 				new ButtonGrid(
 						4,
+						buttonMasterDataBuchung,
+						buttonMasterDataBuchungBudget,
+						buttonMasterDataBudget,
 						buttonMasterDataKonto,
 						buttonMasterDataPartner
 				);
@@ -93,6 +123,15 @@ public class MasterDataView extends VerticalLayout implements BeforeEnterObserve
 		LOG.info("main menu view opened for user '{}'.", session.getUserName());
 	}
 
+	private void switchToSourceBuchung() {
+		getUI().ifPresent(ui -> ui.navigate(BuchungPageView.URL));
+	}
+	private void switchToSourceBuchungBudget() {
+		getUI().ifPresent(ui -> ui.navigate(BuchungBudgetPageView.URL));
+	}
+	private void switchToSourceBudget() {
+		getUI().ifPresent(ui -> ui.navigate(BudgetPageView.URL));
+	}
 	private void switchToSourceKonto() {
 		getUI().ifPresent(ui -> ui.navigate(KontoPageView.URL));
 	}

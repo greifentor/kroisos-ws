@@ -17,11 +17,29 @@ public class BuchungMasterDataGridFieldRenderer implements MasterDataGridFieldRe
 
 	@Override
 	public Object getHeaderString(String fieldName, Buchung model) {
+		if (Buchung.KONTOQUELLE.equals(fieldName)) {
+			return model.getKontoQuelle() != null ? model.getKontoQuelle().getKuerzel() : "-";
+		}
+		if (Buchung.PARTNER.equals(fieldName)) {
+			return model.getPartner() != null ? model.getPartner().getBezeichnung() : "-";
+		}
+		if (Buchung.KONTOZIEL.equals(fieldName)) {
+			return model.getKontoZiel() != null ? model.getKontoZiel().getKuerzel() : "-";
+		}
 		return null;
 	}
 
 	@Override
 	public boolean hasRenderingFor(String fieldName) {
+		if (Buchung.KONTOQUELLE.equals(fieldName)) {
+			return true;
+		}
+		if (Buchung.PARTNER.equals(fieldName)) {
+			return true;
+		}
+		if (Buchung.KONTOZIEL.equals(fieldName)) {
+			return true;
+		}
 		return false;
 	}
 
